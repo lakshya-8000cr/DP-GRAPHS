@@ -19,33 +19,30 @@ public class GraphBFS {
     
 
 
-    public void bfs(int start) {
+    public void bfs(int start) { 
         boolean[] visited = new boolean[5];
-        Queue<Integer> q  = new LinkedList<>();
-
-        visited[start] = true;
+        Queue<Integer> q = new LinkedList<>();
 
         q.add(start);
+        visited[start] = true;
 
         while(!q.isEmpty()){
             int size = q.size();
 
             for(int i=0; i<size; i++){
-                int curr = q.poll();  // curr level ke nodes
+                int curr = q.poll();
 
-                System.out.println(curr + " ") ; // curr level ke nodes print krooo 
+                System.out.println(curr + " ");
 
-                // now we will find the neighbour of the curr level i mean edges
-
-                for(int neighbour : adjList.get(curr) ) { // all the edges connected to the current level node
-                    if(!visited[neighbour]){  // if the neighbour are not visited then add the neighbour in queue
-                        q.add(neighbour);
-                        visited[neighbour] = true;  // mrked true
+                for(int neight : adjList.get(curr)){
+                    if(!visited[neight]){
+                        q.add(neight);
+                        visited[neight] = true;
                     }
                 }
-                
             }
-            System.out.println(); // our level 1 ends here suoooo
+
+            System.out.println();
         }
     }
     
@@ -57,7 +54,6 @@ public class GraphBFS {
         g.addVertex(2);
         g.addVertex(3);
         g.addVertex(4);
-        
         g.addEdge(1, 2);
         g.addEdge(1, 3);
         g.addEdge(2, 4);
