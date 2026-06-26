@@ -24,7 +24,7 @@ class Solution {
                     int newro = curr[0] + dir[0];
                     int newco = curr[1] + dir[1];
 
-                    if(newro>=0 && newro < row && newco>=0 && newco<col && image[newro][newco]!=0){
+                    if(newro>=0 && newro < row && newco>=0 && newco<col && image[newro][newco]==original){
                         image[newro][newco] = color;
                         q.add(new int[]{newro , newco});
                     }
