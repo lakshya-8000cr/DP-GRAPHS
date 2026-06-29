@@ -1,3 +1,4 @@
+package basic;
 public class 1 {
 
     public int m(int a , int b){
