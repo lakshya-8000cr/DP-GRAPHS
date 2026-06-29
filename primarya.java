@@ -16,7 +16,6 @@ class primary{
         adjst.get(x).add(y);
         adjst.get(y).add(x);
     }
-
     public List<Integer> getNeighbour(int node){
         return adjst.get(node);
     }
