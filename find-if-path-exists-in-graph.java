@@ -1,51 +1,56 @@
 /*
  * @lc app=leetcode id=1971 lang=java
  *
- * [1971] Find if Path Exists in Graph
+ * [323] Find the connected component in undirected graph
  */
 
 // @lc code=start
+import java.util.*;
+
 class Solution {
-    public boolean validPath(int n, int[][] edges, int source, int destination) {
+    int countConnected(int V, ArrayList<ArrayList<Integer>> edges) {
 
-     List<List<Integer>> graph = new ArrayList<>();
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            adj.add(new ArrayList<>());
+        }
+        
+        for (ArrayList<Integer> edge : edges) {
+            int u = edge.get(0);
+            int v = edge.get(1);
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
 
-     if(source==destination) return true;
+        boolean[] visited = new boolean[V];
+        int count = 0;
 
-     for(int i=0; i<n; i++){
-        graph.add(new ArrayList<>());
-     }
-
-     for(int[] edge : edges ){
-         int x = edge[0];
-         int y = edge[1];
-
-         graph.get(x).add(y);
-         graph.get(y).add(x);
-     }
-
-     Queue<Integer> q = new LinkedList<>();
-     boolean[] visited = new boolean[n];
-
-     q.add(source);
-     visited[source] = true;
-    
-     while(!q.isEmpty()){
-
-        int curr = q.poll();
-
-        for(int neigh : graph.get(curr)){
-            if(neigh==destination)return true;
-
-            if(!visited[neigh]){
-                visited[neigh] = true;
-                q.add(neigh);
+        for (int i = 0; i < V; i++) {
+            if (!visited[i]) {
+                count++; 
+                bfs(i, adj, visited);
             }
         }
-     }
 
-     return false;
+        return count;
+    }
 
+  
+    private void bfs(int start, List<List<Integer>> adj, boolean[] visited) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(start);
+        visited[start] = true;
+
+        while (!q.isEmpty()) {
+            int curr = q.poll();
+
+            for (int neighbor : adj.get(curr)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    q.add(neighbor);
+                }
+            }
+        }
     }
 }
 // @lc code=end
