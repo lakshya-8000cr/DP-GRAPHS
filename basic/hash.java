@@ -1,25 +1,54 @@
-package basic;
-import java.util.*;
-public class hash {
-    public static void main(){
-        HashMap<Integer , Integer> mp = new LinkedHashMap<>();
+class Solution {
+    public int shortestPathBinaryMatrix(int[][] grid) {
+        
+        int n = grid.length;
 
-        for(int i=0; i<n; i++){
-            int val = arr[i];
+        int m = grid[0].length;
 
-            if(!mp.containsKey(val)){
-                mp.put(val,1);
-            }
-            else{
-                mp.put(val,map.get(val)+1);
-            }
-
+                if(grid[0][0]==1 || grid[n-1][n-1]==1){
+            return -1;
         }
 
-        for(int i : mp.keySet()){
-            int val = mp.get(i);
+        if(n==1)return 1;
+      
+        Queue<int[]> q = new LinkedList<>();
+        boolean[][] visit = new boolean[n][n];
 
-            if(val==1)return i;
+        q.add(new int[]{0,0,1});
+        visit[0][0] = true;
+
+        int[][] dirs = {
+            {-1,0},
+            {1,0},
+            {0,-1},
+            {0,1},
+            {1,1},
+            {1,-1},
+            {-1,1},
+            {-1,-1},
+        };
+
+        
+        while(!q.isEmpty()){
+             int[] curr = q.poll();
+
+             for(int[] dir : dirs){ 
+             int currRo = curr[0] + dir[0];
+             int currCol = curr[1] + dir[1];
+             int currD = curr[2];
+
+             if(currRo==n-1 && currCol==n-1){
+                return currD+1;
+             }
+
+             if(currRo>=0 && currRo<n && currCol>=0 && currCol<n && !visit[currRo][currCol] && grid[currRo][currCol]==0){
+                q.add(new int[]{currRo,currCol , currD + 1});
+                visit[currRo][currCol] = true;
+             }
+             }
         }
+
+        return -1;
+
     }
 }
