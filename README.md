@@ -1,3 +1,9 @@
-Hii Guys in this repo i will be solving the leetcode questions .
-I will maintain a streak of 30 days without relapsing it .
-Wish me luck .....
+# LeetCode
+
+Just dropping my LeetCode solutions here.
+
+3 questions a day.
+30 days.
+No excuses.
+
+Let's see how this goes. 
