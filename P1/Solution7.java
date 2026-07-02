@@ -1,24 +1,28 @@
 package P1;
 
+
 public class Solution7 {
     public static int findEquilibrium(int[] arr) {
-        for(int i=0; i<arr.length; i++){
+
+        int sum = 0;
+        for(int x :arr){
+            sum += x;
+        }
+
             int left = 0;
-            int right = 0 ;
-            int sum = 9;
+
+        for(int i=0; i<arr.length; i++){
+            int right = sum -  left - arr[i];
+
+            if(right==left)return i;
 
             left += arr[i];
-            right = sum - left;
-
-            if(left>right){
-                return i;
-            }
         }
         return -1;
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2 , 3 , 2 , 1};
+        int[] arr = {1, 3, 5, 2, 2};
         System.out.println(findEquilibrium(arr));
     }
 }
