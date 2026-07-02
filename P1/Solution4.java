@@ -10,9 +10,11 @@ public class Solution4 {
             }
 
             for(int j=0; j<2*i-1; j++){
-                System.out.print(q);
+                System.out.print(q+"*");
                 q++;
             }
+
+            System.out.println();
         }
 
     }
