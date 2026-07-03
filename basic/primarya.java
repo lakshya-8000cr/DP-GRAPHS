@@ -8,15 +8,16 @@ class primary{
     public primary(){
         adjst = new HashMap<>();
     }
-
+ 
     public void addVertex(int node){
         adjst.putIfAbsent(node , new ArrayList<>());
     }
 
-    public void addEdge(int x , int y){
-        adjst.get(x).add(y);
-        adjst.get(y).add(x);
+    public void addEdge(int x  , int v){
+        adjst.get(x).add(v);
+        adjst.get(v).add(x);
     }
+
     public List<Integer> getNeighbour(int node){
         return adjst.get(node);
     }
