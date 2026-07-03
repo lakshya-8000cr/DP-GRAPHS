@@ -10,7 +10,6 @@ public class Solution13 {
         int r = matrix.length;
         int c = matrix[0].length;
 
-        java.util.Stack<Integer> st = new java.util.Stack<>();
         java.util.Map<Integer, Integer> ls = new java.util.LinkedHashMap<>();
         for(int i=0; i<matrix.length; i++){
             int cnt = 0;
@@ -24,7 +23,7 @@ public class Solution13 {
         }
 
         int max = 0;
-        int k = 0;
+        int k = -1;
 
         for(int x : ls.keySet()){
             int vl = ls.get(x);
@@ -40,10 +39,10 @@ public class Solution13 {
 
     public static void main(String[] args) {
         int[][] matrix = {
-            {0, 0, 0, 0},
-            {0, 0, 0, 1},
+            {1,1,1,1},
             {1, 1, 1, 1},
-            {0, 1, 1, 1}
+            {1, 1, 1, 1},
+            {1, 1, 1, 1}
         };
 
         System.out.println(rowWithMaxZeros(matrix)); // Expected Output: 1
