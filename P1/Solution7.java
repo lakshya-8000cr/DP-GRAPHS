@@ -12,9 +12,9 @@ public class Solution7 {
             int left = 0;
 
         for(int i=0; i<arr.length; i++){
-            int right = sum -  left - arr[i];
+            int right = sum - left - arr[i];
 
-            if(right==left)return i;
+            if(left==right)return i;
 
             left += arr[i];
         }
