@@ -5,6 +5,8 @@ import java.util.*;
 public class Solution11 {
     public static void rotateRight(int[] arr, int k) {
 
+        if(k==0)k=-1;
+
         ArrayList<Integer> ls1 = new ArrayList<>();
         ArrayList<Integer> ls2 = new ArrayList<>();
 
@@ -34,7 +36,7 @@ public class Solution11 {
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
-        int k = 3;
+        int k = 0;
         
         rotateRight(arr, k);
         
