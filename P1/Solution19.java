@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Solution19 {
     public static void main(String[] args){
-        String e = "aaeiou";
+        String e = "abeabutiedcia";
         HashMap<Character , Integer> mp = new HashMap<>();
         for(int i=0; i<e.length(); i++){
             char ch = e.charAt(i);
