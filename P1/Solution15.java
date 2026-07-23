@@ -17,7 +17,7 @@ public class Solution15 {
                 else{
                 ans += st.charAt(i);
                 ans += cnt;
-                cnt = 1;
+    
                 }
             }
         }
